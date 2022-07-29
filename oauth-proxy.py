@@ -13,16 +13,3 @@
 
 import importlib.util
 import sys
-import git
-from os.path import exists
-
-if not exists("email-oauth2-proxy/emailproxy.py"):
-    g = git.cmd.Git("https://github.com/simonrob/email-oauth2-proxy")
-    g.pull()
-
-spec = importlib.util.spec_from_file_location("emailoauth2proxy", "email-oauth2-proxy/emailproxy.py")
-emailproxy = importlib.util.module_from_spec(spec)
-sys.modules["emailoauth2proxy"] = emailproxy
-spec.loader.exec_module(emailproxy)
-
-emailproxy.App()
