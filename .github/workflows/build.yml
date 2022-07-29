@@ -44,7 +44,7 @@ jobs:
           - os: ubuntu-latest
             TARGET: ubuntu
             CMD_BUILD: pyinstaller -F -c -n oauth2-proxy_linux oauth-proxy.py
-            OUT_FILE_NAME: oauth2-proxy_windows
+            OUT_FILE_NAME: oauth2-proxy_linux
             ASSET_MIME: application/x-executable
     steps:
     - uses: actions/checkout@v1
