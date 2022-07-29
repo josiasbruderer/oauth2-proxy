@@ -13,3 +13,6 @@
 
 import importlib.util
 import sys
+from email_oauth2_proxy import emailproxy
+
+emailproxy.App()

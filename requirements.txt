@@ -1,1 +1,3 @@
+-r email_oauth2_proxy/requirements.txt
+
 pyinstaller

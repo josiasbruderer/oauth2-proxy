@@ -1,0 +1,3 @@
+[submodule "email_oauth2_proxy"]
+	path = email_oauth2_proxy
+	url = https://github.com/simonrob/email-oauth2-proxy
