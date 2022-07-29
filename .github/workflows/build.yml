@@ -38,12 +38,12 @@ jobs:
         include:
           - os: windows-latest
             TARGET: windows
-            CMD_BUILD: pyinstaller --add-data 'email_oauth2_proxy;.' -F -c -n oauth2-proxy_windows oauth-proxy.py
+            CMD_BUILD: pyinstaller --add-data 'email_oauth2_proxy/*;email_oauth2_proxy' -F -c -n oauth2-proxy_windows oauth-proxy.py
             OUT_FILE_NAME: oauth2-proxy_windows.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
           - os: ubuntu-latest
             TARGET: ubuntu
-            CMD_BUILD: pyinstaller --add-data 'email_oauth2_proxy:.' -F -c -n oauth2-proxy_linux oauth-proxy.py
+            CMD_BUILD: pyinstaller --add-data 'email_oauth2_proxy/*:email_oauth2_proxy' -F -c -n oauth2-proxy_linux oauth-proxy.py
             OUT_FILE_NAME: oauth2-proxy_linux
             ASSET_MIME: application/x-executable
     steps:
