@@ -1,3 +1,4 @@
 -r email-oauth2-proxy/requirements.txt
 
 pyinstaller
+GitPython
