@@ -1,0 +1,1 @@
+D:\oauth2-proxy\oauth2-proxy_windows.exe --config-file D:\oauth2-proxy\emailproxy.config --no-gui --local-server-auth
