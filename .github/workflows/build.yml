@@ -38,7 +38,7 @@ jobs:
         include:
           - os: windows-latest
             TARGET: windows
-            CMD_BUILD: pyinstaller --add-data 'src/email_oauth2_proxy/*;email_oauth2_proxy' --add-data 'service-utilities/*:service-utilities' -F -c -n oauth2-proxy_windows oauth-proxy.py
+            CMD_BUILD: pyinstaller --add-data 'src/email_oauth2_proxy/*;email_oauth2_proxy' --add-data 'service-utilities/*;service-utilities' -F -c -n oauth2-proxy_windows oauth-proxy.py
             OUT_FILE_NAME: oauth2-proxy_windows.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
           - os: ubuntu-latest
