@@ -29,10 +29,10 @@ print('Temporary runtime directory:' + os.path.dirname(os.path.realpath(__file__
 print('Working directory: ' + os.getcwd())
 
 if not os.path.exists(os.getcwd() + '/emailproxy.config'):
-    shutil.copyfile(os.path.dirname(os.path.realpath(__file__)) + '/src/email_oauth2_proxy/emailproxy_example.config',
+    shutil.copyfile(os.path.dirname(os.path.realpath(__file__)) + '/email_oauth2_proxy/emailproxy_example.config',
                     os.getcwd() + '/emailproxy.config')
 
-if not os.path.exists(os.getcwd() + '/dist/service-utilities'):
+if not os.path.exists(os.getcwd() + '/service-utilities'):
     shutil.copytree(
         os.path.dirname(os.path.realpath(__file__)) + '/service-utilities',
         os.getcwd() + '/service-utilities')
