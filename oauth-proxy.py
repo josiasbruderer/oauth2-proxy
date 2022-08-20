@@ -11,6 +11,7 @@
 #####################################################################
 
 
+import importlib.util
 import sys
 import os
 import shutil
@@ -31,10 +32,10 @@ if not os.path.exists(os.getcwd() + '/emailproxy.config'):
     shutil.copyfile(os.path.dirname(os.path.realpath(__file__)) + '/src/email_oauth2_proxy/emailproxy_example.config',
                     os.getcwd() + '/emailproxy.config')
 
-if not os.path.exists(os.getcwd() + '/service-utilities'):
+if not os.path.exists(os.getcwd() + '/dist/service-utilities'):
     shutil.copytree(
         os.path.dirname(os.path.realpath(__file__)) + '/service-utilities',
-        os.getcwd() + '/dist/service-utilities')
+        os.getcwd() + '/service-utilities')
     download_and_unzip('https://nssm.cc/release/nssm-2.24.zip', os.getcwd() + '/service-utilities')
 
 emailproxy.UpdatePath(os.getcwd())
