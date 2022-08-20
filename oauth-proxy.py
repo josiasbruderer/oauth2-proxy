@@ -13,6 +13,16 @@
 
 import importlib.util
 import sys
+import os
 from email_oauth2_proxy import emailproxy
+
+if getattr(sys, 'frozen', False):
+    application_path = os.path.dirname(sys.executable)
+    os.chdir(application_path)
+
+print('Temporary runtime directory:' + __file__)
+print('Working directory: ' + os.getcwd())
+
+__file__ = os.getcwd() # overwrite runtime directory with working directory
 
 emailproxy.App()
