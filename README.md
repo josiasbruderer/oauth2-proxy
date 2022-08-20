@@ -1,31 +1,45 @@
 # oauth2-proxy
 
+Used to proxy OAuth2.0 for IMAP, POP and SMTP. 
+
+Based on Simon Robinsons Email OAuth 2.0 Proxy: https://github.com/simonrob/email-oauth2-proxy
+
 ## How to use:
 
 1. Create working directory and download oauth2-proxy_windows.exe
-2. Download example config to same directory from: https://raw.githubusercontent.com/simonrob/email-oauth2-proxy/main/emailproxy.config
-3. Modify config
+2. Run once to create .config and .log files as well as service-utilities folder
+
+```
+D:\oauth2-proxy\oauth2-proxy_windows.exe
+```
+
+3. Modify .config
 4. Run for testing (and manually stop it afterwards):
 
 ```
-D:\oauth2-proxy\oauth2-proxy_windows.exe --config-file D:\oauth2-proxy\emailproxy.config
+D:\oauth2-proxy\oauth2-proxy_windows.exe --config-file D:\somewhere-else\emailproxy.config
 ```
 
-5. Copy service-utilities/start.bat to working directory
-6. Download nssm.exe and copy it to working directory: https://nssm.cc/download
-7. Start Service
+> Parameter --config-file is optional an only required if .config is not in working directory
+
+## Install Service:
+
+1. Run service-utilities/install-service.bat
+2. Start Service
 
 ```
 net start OAuth2-Proxy
 ```
 
-8. Start Authentication f.E. Using Thunderbird (IMAP Port 1993, SMTP Port 1587) and check Logs in working directory
-> or at: C:\Windows\Temp\_MEIXXXXX\email_oauth2_proxy\emailproxy.log to get Authentification-URL
+## Testing:
+
+1. Start Authentication f.E. Using Thunderbird (IMAP Port 1993, SMTP Port 1587) 
+2. Check Logs in working directory to get Authentication-URL
 
 
 ## Build
 
-Build using pyinstaller:
+Build from source using pyinstaller:
 
 ```
 pyinstaller --add-data 'email_oauth2_proxy/*:email_oauth2_proxy' -F -c -n oauth2-proxy_linux oauth-proxy.py
