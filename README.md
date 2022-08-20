@@ -42,7 +42,7 @@ net start OAuth2-Proxy
 Build from source using pyinstaller:
 
 ```
-pyinstaller --add-data 'src/email_oauth2_proxy/*:email_oauth2_proxy' --add-data 'service-utilities/*:service-utilities' -F -c -n oauth2-proxy_linux oauth-proxy.py
+pyinstaller --add-data 'src/email_oauth2_proxy/*:src/email_oauth2_proxy' --add-data 'service-utilities/*:service-utilities' -F -c -n oauth2-proxy_linux oauth-proxy.py
 ```
 
 > Note: Maybe you need some more file permissions:
