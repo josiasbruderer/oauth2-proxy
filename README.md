@@ -24,8 +24,8 @@ D:\oauth2-proxy\oauth2-proxy_windows.exe --config-file D:\somewhere-else\emailpr
 
 ## Install Service:
 
-1. Run service-utilities/install-service.bat
-2. Start Service
+1. Run service-utilities/install-service.bat in an elevated cmd
+2. Start Service with:
 
 ```
 net start OAuth2-Proxy
