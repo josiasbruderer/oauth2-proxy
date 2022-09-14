@@ -134,3 +134,4 @@ versions
 launchd
 .idea
 *.iml
+*.pem

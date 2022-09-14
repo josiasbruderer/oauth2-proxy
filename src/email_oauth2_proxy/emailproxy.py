@@ -1069,7 +1069,7 @@ class IMAPOAuth2ServerConnection(OAuth2ServerConnection):
         # if authentication succeeds, remove our proxy from the client and ignore all further communication
         # don't use a regex here as the tag must match exactly; RFC 3501 specifies uppercase 'OK', so startswith is fine
         if str_response.startswith('%s OK' % self.client_connection.authentication_tag):
-            Log.info(self.info_string(), '[ Successfully authenticated IMAP connection - removing proxy ]')
+            Log.info(self.info_string(), '[ Successfully authenticated IMAP connection for ' + self.authenticated_username + ' - removing proxy ]')
             self.client_connection.authenticated = True
 
         # intercept pre-auth CAPABILITY response to advertise only AUTH=PLAIN (+SASL-IR) and re-enable LOGIN if required
@@ -1159,7 +1159,7 @@ class POPOAuth2ServerConnection(OAuth2ServerConnection):
 
         elif self.client_connection.connection_state is POPOAuth2ClientConnection.STATE.XOAUTH2_CREDENTIALS_SENT:
             if str_data.startswith('+OK'):
-                Log.info(self.info_string(), '[ Successfully authenticated POP connection - removing proxy ]')
+                Log.info(self.info_string(), '[ Successfully authenticated POP connection for ' + self.authenticated_username + ' - removing proxy ]')
                 self.client_connection.authenticated = True
                 super().process_data(byte_data)
             else:
@@ -1252,7 +1252,7 @@ class SMTPOAuth2ServerConnection(OAuth2ServerConnection):
 
         elif self.client_connection.connection_state is SMTPOAuth2ClientConnection.STATE.XOAUTH2_CREDENTIALS_SENT:
             if str_data.startswith('235'):
-                Log.info(self.info_string(), '[ Successfully authenticated SMTP connection - removing proxy ]')
+                Log.info(self.info_string(), '[ Successfully authenticated SMTP connection for ' + self.authenticated_username + ' - removing proxy ]')
                 self.client_connection.authenticated = True
                 super().process_data(byte_data)
             else:
